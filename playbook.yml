@@ -1,0 +1,11 @@
+---
+- name: Configure
+  hosts: ubuntu
+  become: yes
+  roles:
+    - packages
+    - users
+    - set-zsh
+    - ssh
+    - nginx
+    - static

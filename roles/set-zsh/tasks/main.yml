@@ -1,0 +1,24 @@
+---
+- name: Install Oh My Zsh for users
+  become: yes
+  become_user: "{{ item.name }}"
+  shell: |
+    sh -c 'if [ ! -d "$HOME/.oh-my-zsh" ]; then \
+      sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended; \
+    fi'
+  when:
+    - item.state == 'present'
+    - item.shell is defined
+    - item.shell == '/bin/zsh'
+  loop: "{{ users }}"
+
+- name: Set Zsh for users if enabled
+  user:
+    name: "{{ item.name }}"
+    shell: /bin/zsh
+  loop: "{{ users }}"
+  when:
+    - item.state == 'present'
+    - item.shell is defined
+    - item.shell == '/bin/zsh'
+

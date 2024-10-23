@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  ubuntu_ssh:
+    build: .
+    container_name: ubuntu
+    ports:
+      - "2222:22"
+      - "80:80"
+    restart: unless-stopped

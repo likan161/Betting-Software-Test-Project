@@ -1,0 +1,14 @@
+---
+- name: Update all packages
+  apt:
+    update_cache: yes
+    upgrade: dist
+    autoclean: yes
+
+- name: Install packages
+  apt:
+    name: "{{ packages_list }}"
+    state: present
+    autoclean: yes
+
+#Мы конечно теряем 10-12 секунд из за того что autoclean: yes в обоих тасках, но зато идентпотентно

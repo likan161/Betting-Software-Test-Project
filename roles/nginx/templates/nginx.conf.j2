@@ -1,0 +1,14 @@
+server {
+    listen 80 default_server;
+###    server_name _;
+
+    location /images {
+        alias /var/www/images;
+        autoindex on;
+        gzip on;
+        gzip_types image/jpeg image/png image/gif;
+        access_log /var/log/nginx/images_access.log;
+        error_log /var/log/nginx/images_error.log;
+        expires 1h;
+    }
+}

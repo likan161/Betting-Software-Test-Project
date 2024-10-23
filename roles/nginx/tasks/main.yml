@@ -1,0 +1,29 @@
+---
+- name: Install Nginx
+  apt:
+    name: nginx
+    state: present
+    update_cache: yes
+    autoclean: yes
+  notify: Restart Nginx
+
+- name: Remove default site config
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+  notify: nginx -s reload
+
+- name: Create static site conf
+  template:
+    src: nginx.conf.j2
+    dest: /etc/nginx/sites-available/images
+    mode: '0644'
+  notify: nginx -s reload
+
+- name: Enable static site conf (ln -s from sites-available to sites-enabled)
+  file:
+    src: /etc/nginx/sites-available/images
+    dest: /etc/nginx/sites-enabled/images.conf
+    state: link
+  notify: nginx -s reload
+

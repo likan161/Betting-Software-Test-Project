@@ -1,0 +1,20 @@
+---
+
+- name: Create directory for images
+  file:
+    path: /var/www/images
+    state: directory
+    mode: '0755'
+    group: www-data
+    owner: www-data
+
+- name: Copy static files to the server
+  copy:
+    src: pictures/
+    dest: /var/www/images/
+    mode: '0644'
+    group: www-data
+    owner: www-data
+
+
+#Мог конечно скачать ансиблом get_url прямо на сервер архив с изображениями по ссылке с сайта - https://zip.imgur.com/a8573f835f7f32113ff428e965f4681372ba4b9ca534e933b3b3eaddc6dabdfa но это не надёжно, сделал бы так если бы хранилище изображений было своё

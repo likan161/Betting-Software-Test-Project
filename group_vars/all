@@ -1,0 +1,21 @@
+custom_groups:
+  - developers
+  - admins
+
+users:
+  - name: mansur
+    shell: /bin/bash
+    state: present
+    password: "$6$EK5qpvgF$/DdejotBzjoq.oks1fzGfQi8P6dyuB/RjxdtOWwCc1j2jCmBgmdsz9gWtFAPHCAw9z6pg7JbEntIGob0f1zVU0"
+    ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDOIITHRw9pMqDQg02SzWyuamreCDy1zXMJll7c24fm9UwawZp4dZNDY7mXhORgHISSNXTnBp5UaKh265kb8+ihC9TmwS9Cfr26NwyHRX/WOu8PSKZH2SvHrI9ISY7E2hmahcmrdB8vC74uE4GGGP+/hAgJej9dkZghAYdSGbnmc5sLbSYPK2fO4cA0Yrta8N/zRwxYuGN4CKpR9HP1soV+yzBj9WZf/f2RPO+30YS05IRAX4qSm96IPxghagB8XCflYRz2L4cQ7CIy/TN+lmSYC7tBcTxaxsvWx13zkelFByRLH8EldlvSYda6p8qiK9VmJggP/+V2CItDuOopFpK/5lWGewZg4AhC8as+lyv/yibTMMKWry/Ck8+zvbL9EFAPwTGHL96EHGzWaG91amr7kKso1RQ+Gnr1rmQx2m9Qmh77y/r9sieUUxZd2f0gJavpYp5pv43uR4EmIbXkuICTUzgq5JxwhXIRHgYprsWpAWlpcsTHjXoDsVikNqxTH78="
+    groups: ['admins','sudo']
+
+  - name: antimansur
+    shell: /bin/zsh
+    state: present
+    password: "$6$EK5qpvgF$/DdejotBzjoq.oks1fzGfQi8P6dyuB/RjxdtOWwCc1j2jCmBgmdsz9gWtFAPHCAw9z6pg7JbEntIGob0f1zVU0"
+    ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDOIITHRw9pMqDQg02SzWyuamreCDy1zXMJll7c24fm9UwawZp4dZNDY7mXhORgHISSNXTnBp5UaKh265kb8+ihC9TmwS9Cfr26NwyHRX/WOu8PSKZH2SvHrI9ISY7E2hmahcmrdB8vC74uE4GGGP+/hAgJej9dkZghAYdSGbnmc5sLbSYPK2fO4cA0Yrta8N/zRwxYuGN4CKpR9HP1soV+yzBj9WZf/f2RPO+30YS05IRAX4qSm96IPxghagB8XCflYRz2L4cQ7CIy/TN+lmSYC7tBcTxaxsvWx13zkelFByRLH8EldlvSYda6p8qiK9VmJggP/+V2CItDuOopFpK/5lWGewZg4AhC8as+lyv/yibTMMKWry/Ck8+zvbL9EFAPwTGHL96EHGzWaG91amr7kKso1RQ+Gnr1rmQx2m9Qmh77y/r9sieUUxZd2f0gJavpYp5pv43uR4EmIbXkuICTUzgq5JxwhXIRHgYprsWpAWlpcsTHjXoDsVikNqxTH78="
+    groups: ['admins','sudo']
+
+  - name: nemansur
+    state: absent

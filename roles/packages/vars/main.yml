@@ -1,0 +1,7 @@
+packages_list:
+  - htop
+  - ncdu
+  - git
+  - nano
+  - zsh
+  - sudo
