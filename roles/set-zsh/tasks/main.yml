@@ -1,10 +1,9 @@
 ---
 - name: Install Oh My Zsh for users
   become: yes
-  become_user: "{{ item.name }}"
   shell: |
-    sh -c 'if [ ! -d "$HOME/.oh-my-zsh" ]; then \
-      sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended; \
+    su - "{{ item.name }}" -c 'if [ ! -d "$HOME/.oh-my-zsh" ]; then \
+      wget -qO- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh -s -- --unattended; \
     fi'
   when:
     - item.state == 'present'

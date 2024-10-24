@@ -1,12 +1,11 @@
 FROM ubuntu:24.04
 
 RUN apt-get update && \
-    apt-get install -y openssh-server && \
+    apt-get install -y openssh-server sudo && \
     apt-get clean
 
 RUN  mkdir /var/run/sshd && \ 
-     echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config && \
-     echo 'root:pass' | chpasswd
+     echo 'ubuntu:pass' | chpasswd
 
 EXPOSE 22
 EXPOSE 80
